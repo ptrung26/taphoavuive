@@ -11,4 +11,6 @@ public interface IKhoTheKhoRepository extends JpaRepository<TheKho, UUID> {
 
     boolean existsByDonViTinhIdIn(List<UUID> donViTinhIds);
     List<TheKho> findAllByPhieuId(UUID phieuid);
+    List<TheKho> findAllByKhoIdAndShopIdAndHangHoaIdIn(UUID khoId, int shopId, List<UUID> hangHoaIds);
+    void deleteAllByTheKhoPhieuId(UUID theKhoPhieuId);
 }

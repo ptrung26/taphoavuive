@@ -12,5 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 public class HangHoaDto extends HangHoa {
+    private String maDonViTinhCoBan;
+    private String tenDonViTinhCoBan;
     private List<HangHoaDonViTinh> lstDonViTinhClient;
 }
