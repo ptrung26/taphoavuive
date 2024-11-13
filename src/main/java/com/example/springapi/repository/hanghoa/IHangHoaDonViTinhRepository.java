@@ -15,7 +15,7 @@ import java.util.UUID;
 public interface IHangHoaDonViTinhRepository extends JpaRepository<HangHoaDonViTinh, UUID> {
     @Transactional
     @Modifying
-    @Query("DELETE FROM HangHoaDonViTinh h WHERE h.id IN :donViTinhs")
+    @Query("UPDATE HangHoaDonViTinh h SET h.isDeleted = true, h.deletedAt = CURRENT_TIMESTAMP WHERE h.id IN :donViTinhs")
     void deleteByDonViTinhIdIn(@Param("donViTinhs") List<UUID> donViTinhs);
 
 }

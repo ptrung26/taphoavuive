@@ -1,4 +1,6 @@
 package com.example.springapi.repository.base;
 
-public interface IBaseRepo {
+
+public interface IMustHaveTenant {
+
 }

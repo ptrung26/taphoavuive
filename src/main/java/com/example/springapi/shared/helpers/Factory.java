@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class Factory {
@@ -14,6 +15,9 @@ public class Factory {
         _modelMapper = modelMapper;
     }
 
+    /**
+     * mapper function
+     */
     public <T, D> Object map(Object source, Class<T> targetClass) {
         if (source instanceof List) {
             var sourceList = (List<D>)source;
@@ -29,6 +33,14 @@ public class Factory {
         } else {
             return _modelMapper.map(source, targetClass);
         }
+    }
+
+    /**
+     * Check uuid input is null or empty
+     */
+    public static boolean isNullOrEmptyId(UUID uuid) {
+        // Kiểm tra UUID có phải là null hoặc UUID rỗng (00000000-0000-0000-0000-000000000000)
+        return uuid == null || uuid.equals(new UUID(0L, 0L));
     }
 
 }
